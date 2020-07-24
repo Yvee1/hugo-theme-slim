@@ -11,35 +11,41 @@
     <div class="content">
       <div class="posts">
         {{ $paginator := .Paginate (where site.RegularPages "Type" "in" site.Params.mainSections) }} {{ range $paginator.Pages }}
-        <div class="post">
+        <div class="post card">
+          {{ if eq .Section "projects" }}
+          <h2 class="post-title"><a href="{{ .Params.project }}">{{ .Title }}</a></h2>
+          {{ else }}
           <h2 class="post-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+          {{ end }}
+          <img class="cover-image" src="{{ .Params.cover }}"></img>
+          {{ if .Params.tags }}
+          <span class="post-tags">
+            {{ range .Params.tags }}
+                #<a href="{{ $.Site.BaseURL }}tags/{{ . | urlize }}">{{ . }}</a>&nbsp;
+            {{ end }}
+		      </span>
+		      {{ end }}
+          {{ if .Site.Params.Summary }}
+          <div class="summary">
+          {{ .Summary }}
+          <a class="read-more" href="{{.RelPermalink}}">&hellip;</a>
+          </div>
+          {{ else if .Site.Params.Content }}
+          <div class="content">
+            {{ .Content }}
+          </div>
+          {{ end }}
           <span class="post-date">{{ .Date.Format "Jan 2, 2006" }}</span>
-		  {{ if .Params.tags }}
-			<span class="post-tags">
-		  	{{ range .Params.tags }}
-			          #<a href="{{ $.Site.BaseURL }}tags/{{ . | urlize }}">{{ . }}</a>&nbsp;
-		  	{{ end }}
-		    </span>
-		  {{ end }}
-		  {{ if .Site.Params.Summary }}
-		  	<div class="summary">
-				{{ .Summary }}
-				<a class="read-more" href="{{.RelPermalink}}">&hellip;</a>
-			</div>
-		  {{ else if .Site.Params.Content }}
-			<div class="content">
-				{{ .Content }}
-			</div>
-		   {{ end }}
         </div>
         {{ end }}
       </div>
       {{ partial "pagination.html" . }}
     </div>
+    {{ if .Site.Params.Footer }}
     {{ partial "footer.html" . }}
+    {{ end }}
   </div>
   <script src="{{ .Site.BaseURL }}js/slim.js"></script>
-  {{ with .Site.Params.AnalyticsID }}{{ partial "analytics.html" . }}{{ end }}
 
 </body>
 

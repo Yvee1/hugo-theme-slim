@@ -14,7 +14,6 @@ a {
 
 img {
   max-width: 100%;
-  margin: 1rem 0 0 1rem;
   border: 0;
   border-radius: 5px; }
 
@@ -173,21 +172,27 @@ button,
             transition: all 0.3s; }
 
 .header {
+  display: grid;
+  grid-template-columns: min-content auto;
   position: relative;
-  margin: 3rem auto; }
+  margin: 3rem 0 auto;
+}
 
 .site-title {
   font-size: 1.5rem;
-  font-weight: 700; }
-  .site-title a {
-    color: #333; }
+  font-weight: 700;
+  margin-top: 0;
+}
+ 
+.site-title a {
+    color: #333; 
+ }
 
 .nav {
-  position: absolute;
-  top: 0;
-  left: -15px;
-  transform: translateX(-100%);
-  text-align: right; }
+  text-align: center; 
+  padding-left: 20px;
+  padding-right: 15px;
+}
 
 .nav-btn {
   display: inline-block;
@@ -208,13 +213,20 @@ button,
     opacity: 1; }
 
 .nav-list {
+  /* display: inline-flex; */
+  /* flex-direction: column; */
   list-style: none;
   font-size: 0.8rem;
   margin-top: 1rem;
   padding: 0;
   opacity: 0;
   -webkit-transition: all 0.2s;
-          transition: all 0.2s; }
+          transition: all 0.2s;
+}
+
+.nav-list li {
+  display: inline-block;
+}
 
 .nav-list .spacer {
 	text-align: center;
@@ -256,7 +268,7 @@ button,
 .container {
   *zoom: 1;
   width: auto;
-  max-width: 42em;
+  max-width: 1280px;
   float: none;
   display: block;
   margin-right: auto;
@@ -292,16 +304,22 @@ button,
 
 .post {
   position: relative;
-  margin-bottom: 2rem; }
+  margin-bottom: 2rem;
+  text-align: center;
+ }
+
+.post-title {
+  margin-top: 0px;
+}
 
 .post-title:after {
   content: '';
   display: block;
   border-top: 1px solid #ccc;
-  width: 100%;
+  width: calc(100% - 2em);
   position: absolute;
-  top: 30px;
-  left: -30px;
+  top: 40px;
+  left: 1em;
   z-index: -1; }
 
 .post-title a {
@@ -317,7 +335,7 @@ button,
     content: '';
     position: absolute;
     border: 3px solid transparent;
-    top: 13px;
+    top: 0.8rem;
     -webkit-transition: all 0.3s;
             transition: all 0.3s; }
   .post-title a:before {
@@ -365,3 +383,32 @@ button,
 	color: #ccc;
 }
 
+.card {
+  padding-top: 0.6rem;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+}
+
+/* On mouse-over, add a deeper shadow */
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.content {
+  text-align: left;
+  padding-left: 2em;
+  padding-right: 2em;
+}
+
+.post-date {
+  margin-top: 1.75rem;
+  padding-bottom: 1em;
+}
+
+.cover-image {
+  margin-left: 1em;
+  margin-right: 1em;
+  max-width: calc(100% - 2em) !important;
+  margin-bottom: 1em;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+}

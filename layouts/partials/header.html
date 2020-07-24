@@ -1,6 +1,4 @@
 <div class="header">
-  <h1 class="site-title"><a href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a></h1>
-  <p class="site-tagline">{{ .Site.Params.Subtitle }}</p>
   <div class="nav">
     <a class="nav-btn" href="#">
       <span class="ci ci-burger"></span>
@@ -10,10 +8,15 @@
       <li><a href="{{ .URL }}">{{ .Name }}</a></li>
       {{end}} 
 	  <li class="spacer">&ac;</li>
-{{ with .Site.Params.GithubID }}
+      {{ with .Site.Params.GithubID }}
       <li><a href="https://github.com/{{.}}">Github</a></li>{{ end }} {{ with .Site.Params.TwitterID }}
       <li><a href="https://twitter.com/{{.}}">Twitter</a></li>{{ end }} {{ with .Site.Params.LinkedInID }}
-      <li><a href="http://linkedin.com/in/{{.}}">LinkedIn</a></li>{{ end }}
+      <li><a href="https://twitter.com/{{.}}">LinkedIn</a></li>{{ end }} {{ with .Site.Params.Website }}
+      <li><a href="{{.}}">Website</a></li>{{ end }}
     </ul>
+  </div>
+  <div>
+    <h1 class="site-title"><a href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a></h1>
+    <p class="site-tagline">{{ .Site.Params.Subtitle }}</p>
   </div>
 </div>

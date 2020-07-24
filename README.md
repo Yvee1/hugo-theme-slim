@@ -2,9 +2,9 @@
 
 Slim is a minimal, clean and beautiful theme for [Hugo](http://gohugo.io/).
 
-![Slim screenshot](https://github.com/zhe/hugo-theme-slim/blob/master/images/screenshot.png)
+<!-- ![Slim screenshot](https://github.com/zhe/hugo-theme-slim/blob/master/images/screenshot.png) -->
 
-[Demo](http://themes.gohugo.io/theme/slim).
+<!-- [Demo](http://themes.gohugo.io/theme/slim). -->
 
 ## Installation
 
@@ -24,7 +24,6 @@ You could add `params` into your site's `config.toml` file:
   Subtitle = "Your site's subtitle/tagline"
   GithubID = "Your Github ID"
   TwitterID = "Your Twitter ID"
-  AnalyticsID = "Your Google Analytics tracking code"
   DisqusShortname = "Your Disqus shortname"
   Summary = true  # takes true or false
   Content = false  # takes true or false
@@ -40,7 +39,6 @@ params:
   Subtitle: "Your site's subtitle/tagline"
   GithubID: "Your Github ID"
   TwitterID: "Your Twitter ID"
-  AnalyticsID: "Your Google Analytics tracking code"
   DisqusShortname: "Your Disqus shortname"
   Summary: true # takes true or false
   Content: false # takes true or false
